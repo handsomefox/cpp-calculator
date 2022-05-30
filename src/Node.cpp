@@ -44,7 +44,7 @@ double NumericNode::eval() const {
     return _value;
 }
 
-static uint64_t factorial(unsigned int n) {
+static double factorial(double n) {
     if (n == 0) {
         return 1;
     }
@@ -57,8 +57,7 @@ NumericNode::NumericNode(std::string number_string) {
     if (number_string.length() > 1) {
         if (number_string[number_string.length() - 1] == '!') {
             number_string.pop_back();
-            uint64_t factorial_number = factorial(std::stoi(number_string));
-            number = (double) factorial_number;
+            number = factorial(std::stoi(number_string));
         }
     }
     _value = number;
